@@ -1,3 +1,6 @@
+function mensaje2 (mySprite: Sprite) {
+    HERO.destroy(effects.spray, 500)
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     Manzana = sprites.createProjectileFromSprite(assets.image`Manzana`, HERO, 100, 0)
     animation.runImageAnimation(
@@ -75,9 +78,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
-function mensaje2 (mySprite: Sprite) {
-    HERO.destroy(effects.spray, 500)
-}
 function doSomething (text: string) {
 	
 }
@@ -253,6 +253,10 @@ HERO.setStayInScreen(true)
 info.setLife(3)
 controller.moveSprite(HERO, 70, 70)
 info.setScore(0)
+game.onUpdate(function () {
+    let JEFE: Sprite = null
+    JEFE.setVelocity(50, 50)
+})
 game.onUpdateInterval(2000, function () {
     tiles.setCurrentTilemap(tilemap`level1`)
     scene.setBackgroundImage(img`
